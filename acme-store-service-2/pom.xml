@@ -9,8 +9,8 @@
         <version>2.4.1</version>
         <relativePath></relativePath>
     </parent>
-    <groupId>com.otaviojava.workshop.microstream.helidon</groupId>
-    <artifactId>nosql</artifactId>
+    <groupId>com.architects4j.workshop.microstream.helidon</groupId>
+    <artifactId>acme-store-service-2</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <mpVersion>3.3</mpVersion>
