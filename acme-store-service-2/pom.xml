@@ -15,7 +15,7 @@
     <properties>
         <mpVersion>3.3</mpVersion>
         <maven.compiler.target>11</maven.compiler.target>
-        <package>com.otaviojava.workshop.microstream.helidon.restaurant</package>
+        <package>com.architects4j.workshop.microstream.helidon.product</package>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.compiler.source>11</maven.compiler.source>
         <final.name>restaurant</final.name>
@@ -46,7 +46,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>restaurant</finalName>
+        <finalName>products</finalName>
     </build>
     <profiles>
         <profile>
