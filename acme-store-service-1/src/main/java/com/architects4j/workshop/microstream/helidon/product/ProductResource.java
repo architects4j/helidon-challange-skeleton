@@ -27,7 +27,7 @@ import java.util.Collection;
 @Path("products")
 public class ProductResource {
 
-    private ProductRepository repository;
+    private Inventory repository;
 
     /**
      * @Deprecated CDI only
@@ -36,7 +36,7 @@ public class ProductResource {
     }
 
     @Inject
-    ProductResource(ProductRepository repository) {
+    ProductResource(Inventory repository) {
         this.repository = repository;
     }
 
