@@ -51,18 +51,12 @@ import java.util.Collection;
 @Path("products")
 public class ProductResource {
 
+    @Inject
     private ProductRepository repository;
 
     /**
      * @Deprecated CDI only
      */
-    ProductResource() {
-    }
-
-    @Inject
-    ProductResource(ProductRepository repository) {
-        this.repository = repository;
-    }
 
     //TODO don't worried about pagination
     @GET
