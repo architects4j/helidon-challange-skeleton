@@ -28,7 +28,7 @@ public class Inventory {
     }
 
     public Optional<Product> findById(String id) {
-        return this.products.stream().filter(this.isIdEquals(id)).limit(1).findFirst();
+        return this.products.stream().filter(this.isIdEquals(id)).findFirst();
     }
 
     public void deleteById(String id) {
@@ -36,6 +36,6 @@ public class Inventory {
     }
 
     private Predicate<Product> isIdEquals(final String id) {
-        return p -> p.getName() == id;
+        return p -> p.getName().equals(id);
     }
 }
