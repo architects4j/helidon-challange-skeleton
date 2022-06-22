@@ -24,25 +24,25 @@ import javax.ws.rs.core.Response;
 import java.util.Collection;
 
 @RequestScoped
-@Path("restaurants")
-public class RestaurantController {
+@Path("products")
+public class ProductResource {
 
-    private RestaurantRepository repository;
+    private ProductRepository repository;
 
     /**
      * @Deprecated CDI only
      */
-    RestaurantController() {
+    ProductResource() {
     }
 
     @Inject
-    RestaurantController(RestaurantRepository repository) {
+    ProductResource(ProductRepository repository) {
         this.repository = repository;
     }
 
     //TODO don't worried about pagination
     @GET
-    @Operation(summary = "Get all items", description = "Returns all available items at the restaurant")
+    @Operation(summary = "Get all products", description = "Returns all available products")
     @APIResponse(responseCode = "500", description = "Server unavailable")
     @APIResponse(responseCode = "200", description = "The items")
     @Tag(name = "BETA", description = "This API is currently in beta state")
@@ -52,21 +52,21 @@ public class RestaurantController {
                     schema = @Schema(implementation = Collection.class,
                             readOnly = true, description = "the items",
                             required = true, name = "items")))
-    public Collection<Item> getAll() {
+    public Collection<Product> getAll() {
         return repository.getAll();
     }
 
     @GET
     @Path("{id}")
-    @Operation(summary = "Find an item by id", description = "Find an item by id")
+    @Operation(summary = "Find an product by id", description = "Find an item by id")
     @APIResponse(responseCode = "200", description = "The item")
     @APIResponse(responseCode = "404", description = "When the id does not exist")
     @APIResponse(responseCode = "500", description = "Server unavailable")
     @Tag(name = "BETA", description = "This API is currently in beta state")
     @APIResponse(description = "The Item",
             content = @Content(mediaType = MediaType.APPLICATION_JSON,
-                    schema = @Schema(implementation = Item.class)))
-    public Item findById(@Parameter(description = "The item ID", required = true, example = "water",
+                    schema = @Schema(implementation = Product.class)))
+    public Product findById(@Parameter(description = "The product's name", required = true, example = "water",
             schema = @Schema(type = SchemaType.STRING))
                          @PathParam("id") String id) {
         return this.repository.findById(id).orElseThrow(
@@ -74,13 +74,13 @@ public class RestaurantController {
     }
 
     @POST
-    @Operation(summary = "Insert an item", description = "Insert an Item")
-    @APIResponse(responseCode = "201", description = "When creates an item")
+    @Operation(summary = "Insert a product", description = "Insert a product")
+    @APIResponse(responseCode = "201", description = "When creates a product")
     @APIResponse(responseCode = "500", description = "Server unavailable")
     @Tag(name = "BETA", description = "This API is currently in beta state")
-    public Response insert(@RequestBody(description = "Create a new Item.",
+    public Response insert(@RequestBody(description = "Create a new product.",
             content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = Item.class))) @Valid Item item) {
+                    schema = @Schema(implementation = Product.class))) @Valid Product item) {
         return Response.status(Response.Status.CREATED)
                 .entity(repository.save(item))
                 .build();
@@ -88,12 +88,12 @@ public class RestaurantController {
 
     @PUT
     @Path("{id}")
-    public Item update(@PathParam("id") String id, @Valid Item item) {
-        Item databaseItem = repository.findById(id)
+    public Product update(@PathParam("id") String id, @Valid Product item) {
+        Product databaseItem = repository.findById(id)
                 .orElseThrow(
                         () -> new WebApplicationException("There is no item with the id " + id, Response.Status.NOT_FOUND));
-        databaseItem.update(item, repository);
-        return databaseItem;
+        repository.save(item);
+        return item;
     }
 
     @DELETE
