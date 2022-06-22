@@ -1,4 +1,4 @@
-package com.otaviojava.workshop.microstream.helidon.restaurant;
+package com.architects4j.workshop.microstream.helidon.product;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;

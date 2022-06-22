@@ -1,4 +1,4 @@
-package com.otaviojava.workshop.microstream.helidon.restaurant;
+package com.architects4j.workshop.microstream.helidon.product;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Collection;

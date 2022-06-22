@@ -1,7 +1,7 @@
-package com.otaviojava.workshop.microstream.helidon.restaurant;
+package com.architects4j.workshop.microstream.helidon.product;
 
 
-import com.otaviojava.workshop.microstream.helidon.restaurant.infra.FieldPropertyVisibilityStrategy;
+import com.architects4j.workshop.microstream.helidon.product.infra.FieldPropertyVisibilityStrategy;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import javax.json.bind.annotation.JsonbCreator;
