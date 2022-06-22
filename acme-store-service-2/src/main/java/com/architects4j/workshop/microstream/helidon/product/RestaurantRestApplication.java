@@ -1,4 +1,4 @@
-package com.otaviojava.workshop.microstream.helidon.restaurant;
+package com.architects4j.workshop.microstream.helidon.product;
 
 
 
@@ -23,7 +23,7 @@ public class RestaurantRestApplication extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<>();
         classes.add(HelloController.class);
-        classes.add(RestaurantController.class);
+        classes.add(ProductResource.class);
         return classes;
     }
 }
