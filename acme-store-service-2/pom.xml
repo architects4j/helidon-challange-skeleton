@@ -35,6 +35,10 @@
             <artifactId>jersey-bean-validation</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>mapping-document</artifactId>
             <version>${jakarta.nosql.version}</version>
